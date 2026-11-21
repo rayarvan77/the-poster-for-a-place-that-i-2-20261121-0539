@@ -148,10 +148,10 @@ def main() -> None:
         for x in range(W):
             i = (y * W + x) * 3
             px[i], px[i + 1], px[i + 2] = c
-    # Low sun with a soft halo.
-    disc(px, 742, 296, 96, (250, 196, 110))
-    disc(px, 742, 296, 66, (255, 224, 150))
-    disc(px, 742, 296, 44, (255, 240, 190))
+    # Low sun with a soft halo, kept clear of the tagline above it.
+    disc(px, 800, 350, 96, (250, 196, 110))
+    disc(px, 800, 350, 66, (255, 224, 150))
+    disc(px, 800, 350, 44, (255, 240, 190))
     # Distant mountain ridge.
     for x in range(W):
         ridge = 560 + int(46 * __import__("math").sin(x / 130.0) + 26 * __import__("math").sin(x / 47.0 + 2.0))
@@ -162,6 +162,7 @@ def main() -> None:
         (120, 800, 220, 60), (330, 850, 260, 70), (620, 810, 240, 62),
         (880, 860, 240, 70), (60, 930, 200, 66), (420, 940, 280, 72),
         (760, 950, 260, 70), (980, 960, 180, 60), (240, 990, 260, 50),
+        (620, 905, 210, 58),
     ]:
         ellipse(px, cx, cy, rx, ry, (244, 232, 214))
     # The three floating islands of Aerthys.
@@ -177,8 +178,8 @@ def main() -> None:
     tree(px, 130, 556)
     tree(px, 810, 536)
     # A little skyferry crossing in front of the sun.
-    ellipse(px, 700, 330, 46, 14, (196, 84, 52))
-    rect(px, 676, 342, 724, 352, (120, 52, 40))
+    ellipse(px, 758, 384, 46, 14, (196, 84, 52))
+    rect(px, 734, 396, 782, 406, (120, 52, 40))
     # Birds: quick dark chevrons high in the sky.
     for bx, by in [(220, 210), (260, 190), (310, 220), (880, 180), (920, 210)]:
         for dx in range(9):
