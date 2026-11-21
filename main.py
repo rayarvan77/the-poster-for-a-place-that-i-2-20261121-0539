@@ -62,7 +62,7 @@ def draw_text(px, text, cx, y, scale, color):
         glyph = GLYPHS.get(ch, GLYPHS[" "])
         for row in range(7):
             for col in range(5):
-                if glyph[row][col] == "#":
+                if glyph[row][col] == "1":
                     for dy in range(scale):
                         for dx in range(scale):
                             set_px(px, x + col * scale + dx, y + row * scale + dy, color)
@@ -120,9 +120,11 @@ def island(px, cx, top, half_w, rock_h):
 
 def tower(px, x, base, w, h, color):
     rect(px, x, base - h, x + w, base, color)
-    # Pointed roof.
-    for dy in range(w // 2 + 4):
-        for dx in range(-dy, dy + 1):
+    # Pointed roof: widest row sits on the tower top, narrowing to an apex.
+    roof_h = w // 2 + 4
+    for dy in range(roof_h):
+        half = roof_h - dy
+        for dx in range(-half, half + 1):
             set_px(px, x + w // 2 + dx, base - h - dy, (196, 84, 52))
     # Lit windows.
     for wy in range(base - h + 8, base - 6, 14):
